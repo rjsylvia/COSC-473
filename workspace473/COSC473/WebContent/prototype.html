@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="css/cosc_monitors.css">
+	<link rel="stylesheet" type="text/css" href="css/weather.css">
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="js/moment.min.js"></script>
+	<script type="text/javascript" src="js/jquery.simpleWeather.js"></script>
+	<script type="text/javascript" src="js/cosc_monitors.js"></script>
+	<script type="text/javascript" src="js/twitter.js"></script>
+	<script type="text/javascript" src="js/facebook.js"></script>
+<title>COSC Hall Monitors</title>
+</head>
+<body>
+	<div>
+		<img id="iup_hawk" src="images/iup_crimson_hawk.jpg">
+	</div>
+	
+	<div id="weather"></div>
+	<div id="toolbar">
+		<marquee behavior="scroll" direction="left" scrollamount="8" id="datetime"></marquee>
+	</div>
+	
+	<div id="container">
+		<div id="cosc_section">
+			<h1>Class schedule for <span id="day"></span></h1>
+			<div id="schedule"></div>
+		</div>
+		<div id="iup_section">
+			<h1>IUP Events</h1>
+			<!-- IUP Events code to go here -->
+		</div>
+		<div id="social_media_section">
+			<h1>IUP Social Media</h1>
+			<p align="center"><a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562"  data-chrome="nofooter noheader" height="380">Tweets by @IUPedu</a></p>
+			<!-- Unfinished Facebook plug-in stuff -->
+			<!-- <a class="fb-page" data-href="https://www.facebook.com/iupedu" data-height="380" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></a> -->
+		</div>
+		<div id="video_section">
+			<h1>National/Worldwide News</h1>
+			<p align="center"><iframe id="" src="https://livestream.com/accounts/6396566/events/2598525/player?width=640&height=360&autoPlay=true&mute=true" width="640" height="360"> </iframe></p>
+		</div>
+	</div>
+</body>
+</html>
