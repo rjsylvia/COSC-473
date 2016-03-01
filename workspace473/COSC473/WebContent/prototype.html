@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="cosc_monitors.css">
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="moment.min.js"></script>
+	<script type="text/javascript" src="jquery.simpleWeather.js"></script>
+	<script type="text/javascript" src="cosc_monitors.js"></script>
+<title>COSC Hall Monitors</title>
+</head>
+<body>
+	<div>
+		<img id="iup_hawk" src="..\iup_crimson_hawk.jpg">
+	</div>
+	
+	<div id="weather"></div>
+	<div id="toolbar">
+		<!--<span id="datetime"></span>-->
+		<marquee behavior="scroll" direction="left" scrollamount="8" id="datetime"></marquee>
+	</div>
+	
+	<div id="container">
+		<div id="cosc_section">
+			<h1>Class schedule for <span id="day"></span></h1>
+			<h3>8:00 to 9:15am - COSC 473 Software Engineering Practice</h3>
+		</div>
+		<div id="iup_section">
+			<h1>IUP Events</h1>
+			<!-- <img id="mockup_iup_events" src="..\mockup_iup_events.png"> -->
+		</div>
+		<div id="social_media_section">
+			<h1>IUP Social Media</h1>
+			<a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562"  data-chrome="nofooter noheader" height="380">Tweets by @IUPedu</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+		<div id="video_section">
+			<h1>National/Worldwide News</h1>
+			<!-- Secondary live news feed, has option for captions though haven't figured how to turn on yet -->
+			<!--<iframe src="http://www.newtvworld.com/livetv/india/BBCWorldNews.html" width="768" height="432"  frameborder="0" mute="true" scrolling="no"></iframe> -->
+			<iframe src="http://livestream.com/accounts/57501/events/1146195/player?width=640&height=360&autoPlay=true&mute=true" width="70%" height="85%" frameborder="0" scrolling="no"> </iframe>
+		</div>
+	</div>
+</body>
+</html>
