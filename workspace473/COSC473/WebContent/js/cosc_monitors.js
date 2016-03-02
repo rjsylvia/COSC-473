@@ -60,7 +60,7 @@ $(document).ready(function(){
 function getClasses() {
 	// This will need changing to dynamically pick what file to read depending on monitor
 	
-	$.get('str112A_data.csv', function(data) {
+	$.get('data/str112A_data.csv', function(data) {
 		var build = '<table cellpadding="2" cellspacing="2" style="border-collapse: collapse" width="100%">\n';
 		var rows = data.split("\n");
 		rows.forEach( function getvalues(thisRow) {
