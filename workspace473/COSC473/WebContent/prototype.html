@@ -7,6 +7,7 @@
 	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="js/moment.min.js"></script>
 	<script type="text/javascript" src="js/jquery.simpleWeather.js"></script>
+	<script type="text/javascript" src="js/jquery.cycle.js"></script>
 	<script type="text/javascript" src="js/cosc_monitors.js"></script>
 	<script type="text/javascript" src="js/twitter.js"></script>
 	<script type="text/javascript" src="js/facebook.js"></script>
@@ -33,12 +34,14 @@
 		</div>
 		<div id="social_media_section">
 			<h1>IUP Social Media</h1>
-			<p align="center"><a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562"  data-chrome="nofooter noheader" height="380">Tweets by @IUPedu</a></p>
-			<!-- Unfinished Facebook plug-in stuff -->
-			<!-- <a class="fb-page" data-href="https://www.facebook.com/iupedu" data-height="380" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></a> -->
+			<div class="social_media">
+				<div class="soc-media" id="twitter-widget" align="center"><a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562"  data-chrome="nofooter noheader" data-width="500" data-height="380"></a></div>
+				<div class="soc-media" id="facebook-widget" align="center"><a class="fb-page" data-href="https://www.facebook.com/iupedu" data-width="500" data-height="380" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></a></div>
+			</div>
 		</div>
 		<div id="video_section">
 			<h1>National/Worldwide News</h1>
+			<!-- This needs to somehow either be change to allow dynamic resizing or using dimensions of TV monitors -->
 			<p align="center"><iframe id="" src="https://livestream.com/accounts/6396566/events/2598525/player?width=640&height=360&autoPlay=true&mute=true" width="640" height="360"> </iframe></p>
 		</div>
 	</div>

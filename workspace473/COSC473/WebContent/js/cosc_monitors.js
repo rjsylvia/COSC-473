@@ -55,6 +55,11 @@ $(document).ready(function(){
 	setInterval(getClasses, 10800000); 	// Update every 3 hours to stay updated for next day
 	
 	setInterval(reloadNewsLiveFeed, 10800000); // Reload every 3 hours to refresh the live feed
+	
+	$('.social_media').cycle({
+	    speed: 1000,
+	    timeout: 29000
+	});
 });
 
 function getClasses() {
