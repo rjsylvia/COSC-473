@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="js/cosc_monitors.js"></script>
 	<script type="text/javascript" src="js/twitter.js"></script>
 	<script type="text/javascript" src="js/facebook.js"></script>
-<title>COSC Hall Monitors</title>
+	<title>COSC Hall Monitors</title>
 </head>
 <body>
 	<div>
@@ -24,23 +24,34 @@
 	</div>
 	
 	<div id="container">
-		<div id="cosc_section">
-			<h1>Class schedule for <span id="day"></span></h1>
-			<div id="schedule"></div>
+		<div class="leftside_panel">
+			<div id="cosc_headers">
+				<h1>Class schedule for <span id="day"></span></h1>
+				<h1>COSC Events & Tutoring</h1>
+			</div>
+			<div class="comp_sci_info">
+				<div id="schedule"></div>
+				<div id="cosc_events_tutoring"></div>
+			</div>
 		</div>
-		<div id="iup_section">
-			<h1>IUP Events</h1>
-			<!-- IUP Events code to go here -->
+		<div class="rightside_panel">
+			<div id="iup_headers">
+				<h1>IUP Campus Events</h1>
+				<h1>IUP Sports News</h1>
+			</div>
 		</div>
-		<div id="social_media_section">
-			<h1>IUP Social Media</h1>
+		<div class="leftside_panel">
+			<div id="media_headers">
+				<h1>IUP Twitter</h1>
+				<h1>IUP Facebook</h1>
+			</div>
 			<div class="social_media">
 				<div class="soc-media" id="twitter-widget" align="center"><a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562"  data-chrome="nofooter noheader" data-width="500" data-height="380"></a></div>
 				<div class="soc-media" id="facebook-widget" align="center"><a class="fb-page" data-href="https://www.facebook.com/iupedu" data-width="500" data-height="380" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></a></div>
 			</div>
 		</div>
-		<div id="video_section">
-			<h1>National/Worldwide News</h1>
+		<div class="rightside_panel">
+			<h1>National News</h1>
 			<!-- This needs to somehow either be change to allow dynamic resizing or using dimensions of TV monitors -->
 			<p align="center"><iframe id="" src="https://livestream.com/accounts/6396566/events/2598525/player?width=640&height=360&autoPlay=true&mute=true" width="640" height="360"> </iframe></p>
 		</div>
