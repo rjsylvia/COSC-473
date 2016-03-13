@@ -82,6 +82,7 @@ h1 {
 
 .twitter-timeline {
 	height: 38vh !important;
+	background-color: #9F1B32;
 }
 
 .fb-page {
@@ -117,4 +118,9 @@ table {
 #container {
     width: 100%;
     height: 100%;
+}
+
+iframe#national-news-feed {
+	display:block;
+	vertical-align:bottom;
 }

@@ -4,16 +4,18 @@
 	<meta charset="ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="css/cosc_monitors.css">
 	<link rel="stylesheet" type="text/css" href="css/weather.css">
+	<link rel="shortcut icon" href="images/favicon.ico"/>
 	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="js/moment.min.js"></script>
 	<script type="text/javascript" src="js/jquery.simpleWeather.js"></script>
 	<script type="text/javascript" src="js/jquery.cycle.js"></script>
+	<script type="text/javascript" src="js/jquery.fullscreen.js"></script>
 	<script type="text/javascript" src="js/cosc_monitors.js"></script>
 	<script type="text/javascript" src="js/twitter.js"></script>
 	<script type="text/javascript" src="js/facebook.js"></script>
 	<title>COSC Hall Monitors</title>
 </head>
-<body>
+<body onresize="sizeFrame(document.getElementById('national-news-feed'))">
 	<div>
 		<img id="iup_hawk" src="images/iup_crimson_hawk.jpg">
 	</div>
@@ -39,6 +41,7 @@
 				<h1>IUP Campus Events</h1>
 				<h1>IUP Sports News</h1>
 			</div>
+			<div id="iup_campus_events"></div>
 		</div>
 		<div class="leftside_panel">
 			<div id="media_headers">
@@ -46,14 +49,14 @@
 				<h1>IUP Facebook</h1>
 			</div>
 			<div class="social_media">
-				<div class="soc-media" id="twitter-widget" align="center"><a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562"  data-chrome="nofooter noheader" data-width="500" data-height="380"></a></div>
+				<div class="soc-media" id="twitter-widget" align="center"><a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562" data-tweet-limit="4" data-theme="dark" data-chrome="nofooter noheader noborders noscrollbar transparent" data-width="500" data-height="380"></a></div>
 				<div class="soc-media" id="facebook-widget" align="center"><a class="fb-page" data-href="https://www.facebook.com/iupedu" data-width="500" data-height="380" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></a></div>
 			</div>
 		</div>
-		<div class="rightside_panel">
-			<h1>National News</h1>
+		<div id="live-feed-div" class="rightside_panel">
+			<h1 id="frame-header">National News</h1>
 			<!-- This needs to somehow either be change to allow dynamic resizing or using dimensions of TV monitors -->
-			<p align="center"><iframe id="" src="https://livestream.com/accounts/6396566/events/2598525/player?width=640&height=360&autoPlay=true&mute=true" width="640" height="360"> </iframe></p>
+			<div id="live-feed" align="center"><iframe onload="sizeFrame(this)" id="national-news-feed" src="https://livestream.com/accounts/6396566/events/2598525/player?autoPlay=true&mute=true"> </iframe></div>
 		</div>
 	</div>
 </body>

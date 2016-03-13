@@ -17,7 +17,7 @@ $(document).ready(function(){
 	
 	setInterval(reloadNewsLiveFeed, 10800000); // Reload every 3 hours to refresh the live feed
 	
-	// Cycles transition between headers/info every 29 seconds (additional 1 second for transition)
+	// Cycles transition between headers/info every 29 seconds and an additional 1 second for transition
 	// totaling 30 seconds total. This applies to all of the cycle function calls below.
 	$('.social_media').cycle({
 	    speed: 1000,
@@ -43,14 +43,17 @@ $(document).ready(function(){
 	    speed: 1000,
 	    timeout: 29000
 	});
+	
 });
 
 // Declare some variables to be used in functions
-var datetime = null,
-        date = null;
-		day = null;
-		schedule = null;
-		abbrev = null;
+var datetime = null;
+var date = null;
+var day = null;
+var schedule = null;
+var abbrev = null;
+var wth = null;
+var hgt = null;
 
 /*
  * Gets the current day abbreviation
@@ -98,7 +101,7 @@ var updateDate = function () {
 function getClasses() {
 	// This will need changing to dynamically pick what file to read depending on monitor
 	
-	$.get('data/str112A_data.csv', function(data) {
+	$.get('data/str331_data.csv', function(data) {
 		var build = '<table cellpadding="2" cellspacing="2">\n';
 		var rows = data.split("\n");
 		rows.forEach( function getvalues(thisRow) {
@@ -145,4 +148,23 @@ function getWeather() {
  */
 function reloadNewsLiveFeed() {
 	$("#livefeed").contentWindow.location.reload();
+}
+
+function sizeFrame(frame) {
+	var isFullScreen = $(window).data('fullscreen-state');  // Checks if browser is in fullscreen, uses jquery.fullscreen.js (pulled from GitHub)
+	if (isFullScreen == false) {							// If not in fullscreen, do a reset to resize the frame
+		frame.width = "0";
+		frame.height = "0";
+	}
+	var height = document.getElementById('live-feed-div').scrollHeight - document.getElementById('frame-header').scrollHeight;
+	if (height >= 288 && height < 360) {					// Pre-custom set resolutions that are 16:9, will add more
+		frame.width = "512";
+		frame.height = "288";
+	} else if (height >= 360 && height < 432) {
+		frame.width = "640";
+		frame.height = "360";
+	} else {
+		frame.width = "768";
+		frame.height = "432";
+	}
 }
