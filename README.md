@@ -9,3 +9,12 @@ To Do List:
     -Make sure to use the newest version of the editor.
     -1.0.0 - 1.0.1 When creating a new class the new line for the CSV was added to the top instead of being sorted to the correct spot.
     -1.0.1 - 1.0.2 There was an issue with sorting happening at 12:XXPM, which wasn't sorting by minutes, this should be fixed now.
+
+
+Remaining Timeline (Anyone can add to this):
+
+Week 9:
+
+Week 10:
+
+Week 11:
