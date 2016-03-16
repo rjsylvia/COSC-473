@@ -10,6 +10,12 @@ To Do List:
     -1.0.0 - 1.0.1 When creating a new class the new line for the CSV was added to the top instead of being sorted to the correct spot.
     -1.0.1 - 1.0.2 There was an issue with sorting happening at 12:XXPM, which wasn't sorting by minutes, this should be fixed now.
 
+**This point is very important in getting most of the remaining panels working, panel transitions are already in place, just no info**
+2. Import IUP Campus Events in some manner (thinking that IUP Sports News, and COSC Events/Tutoring Info can be done in same way once identfied how to go about it for first case with the campus events).
+
+3. Have IUP Twitter/Facebook widgets resize more responsively in the same way as the news live feed (small job, Dan will most likely do this since he did the resizing of the news live feed).
+
+4. Identify how to change class schedule file being read and shown depending on IP address of TV monitor being used.
 
 Remaining Timeline (Anyone can add to this):
 
