@@ -21,7 +21,7 @@ To Do List:
 
 - [x] Find a way to get machine IP address.
 
-- [ ] Use IP address to determine what CSV file to read for class schedule section.
+- [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/19) Tested my approach with my local IP addresses on my laptop and desktop and it DOES read a different file depending on what machine I was running it on. All this needs is testing on the actual TV monitors and their corresponding IP addresses to make sure it 100% works.**
 
 
 Remaining Timeline (Anyone can add to this):
