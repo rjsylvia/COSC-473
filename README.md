@@ -15,7 +15,7 @@ To Do List:
 
 - [ ] Import IUP Campus Events in some manner (thinking that IUP Sports News can be done in same way once identfied how to go about it for first case with the campus events).
 
-- [ ] Make an inner HTML page that can be edited for use with the COSC Events/Tutoring panel
+- [x] Make an inner HTML page that can be edited for use with the COSC Events/Tutoring panel
 
 - [x] ~~Have IUP Twitter/Facebook widgets resize more responsively in the same way as the news live feed.~~ **After plenty of hours of experimenting/researching, I've discovered the FB widget is not really flexible when dynamically changing widths/heights and therefore, just re-adjusted the static height by a few pixels. This will be the way it is unless anyone else wants to see if they can find how to change it.**
 
