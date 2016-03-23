@@ -25,11 +25,11 @@ To Do List:
 
 - [ ] ****NEW**** Allow cursor to auto-hide in view if not moved for a few seconds.
 
-- [ ] ****BUG**** Fix schedule to replace previous day when reloading. Currently it just appends it to the end. A fix has been implemented and will be tested on day switch.
+- [ ] ****BUG**** Fix schedule to replace previous day when reloading. Currently it just appends it to the end. A fix has been implemented and will be tested on day switch (not in repo currently).
 
-- [x] ****BUG FIX**** Social media widgets do not currently refresh automatically and do not update after page load. This has now been fixed.
+- [x] ****BUG FIX**** Social media widgets do not currently refresh automatically and do not update after page load. This has now been fixed (not in repo currently).
 
-- [x] ****BUG FIX**** News live feed was not refreshing correctly. This has now been fixed.
+- [x] ****BUG FIX**** News live feed was not refreshing correctly. This has now been fixed (not in repo currently).
 
 Remaining Timeline (Anyone can add to this):
 
