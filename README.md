@@ -25,6 +25,10 @@ To Do List:
 
 - [ ] ****NEW**** Allow cursor to auto-hide in view if not moved for a few seconds.
 
+- [ ] ****BUG**** Fix schedule to replace previous day when reloading. Currently it just appends it to the end.
+
+- [ ] ****BUG**** Social media widgets do not currently refresh automatically and do not update after page load.
+
 
 Remaining Timeline (Anyone can add to this):
 
