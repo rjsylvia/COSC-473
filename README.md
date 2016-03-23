@@ -23,6 +23,8 @@ To Do List:
 
 - [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/19) Tested my approach with my local IP addresses on my laptop and desktop and it DOES read a different file depending on what machine I was running it on. All this needs is testing on the actual TV monitors and their corresponding IP addresses to make sure it 100% works.**
 
+- [ ] ****NEW**** Allow cursor to auto-hide in view if not moved for a few seconds.
+
 
 Remaining Timeline (Anyone can add to this):
 
