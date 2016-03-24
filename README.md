@@ -23,8 +23,6 @@ This is a README file for any comments you guys would like to leave for a remind
 
 - [x] ****BUG FIX**** News live feed was not refreshing correctly. This has now been fixed (not in repo currently).
 
-- [ ] ****BUG**** The weather section is broken in this current build, due to a change in the API that the weather jQuery plugin used. It is fixed in the local repo and will be uploaded collectively with the other bug fixes.
-
 Remaining Timeline (Anyone can add to this):
 
 Week 9:
