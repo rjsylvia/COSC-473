@@ -4,22 +4,14 @@ COSC-473 repository
 This is a README file for any comments you guys would like to leave for a reminder or any notes for the rest of the group to see.
 
 
-To Do List:
+**To Do List/Checklist:**
 
-1. Test Brandon's "Master Class Editor 1.0.2.jar" program on the csv files and give feedback reguarding the program in the groupme.
+- [x] Test Brandon's "Master Class Editor 1.0.2.jar" program on the csv files and give feedback reguarding the program in the groupme.
   1. Make sure to use the newest version of the editor.
   2. -1.0.0 - 1.0.1 When creating a new class the new line for the CSV was added to the top instead of being sorted to the correct spot.
   3. -1.0.1 - 1.0.2 There was an issue with sorting happening at 12:XXPM, which wasn't sorting by minutes, this should be fixed now.
     
-**The first two points are very important in getting most of the remaining functionality done, panel transitions are already in place, just needs the data to go with it.**
-
 - [ ] Import IUP Campus Events in some manner (thinking that IUP Sports News can be done in same way once identfied how to go about it for first case with the campus events).
-
-- [x] Make an inner HTML page that can be edited for use with the COSC Events/Tutoring panel
-
-- [x] ~~Have IUP Twitter/Facebook widgets resize more responsively in the same way as the news live feed.~~ **After plenty of hours of experimenting/researching, I've discovered the FB widget is not really flexible when dynamically changing widths/heights and therefore, just re-adjusted the static height by a few pixels. This will be the way it is unless anyone else wants to see if they can find how to change it.**
-
-- [x] Find a way to get machine IP address.
 
 - [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/19) Tested my approach with my local IP addresses on my laptop and desktop and it DOES read a different file depending on what machine I was running it on. All this needs is testing on the actual TV monitors and their corresponding IP addresses to make sure it 100% works.**
 
@@ -30,6 +22,8 @@ To Do List:
 - [x] ****BUG FIX**** Social media widgets do not currently refresh automatically and do not update after page load. This has now been fixed (not in repo currently).
 
 - [x] ****BUG FIX**** News live feed was not refreshing correctly. This has now been fixed (not in repo currently).
+
+- [ ] ****BUG**** The weather section is broken in this current build, due to a change in the API that the weather jQuery plugin used. It is fixed in the local repo and will be uploaded collectively with the other bug fixes.
 
 Remaining Timeline (Anyone can add to this):
 
