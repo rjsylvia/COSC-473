@@ -25,7 +25,7 @@ To Do List:
 
 - [ ] ****NEW**** Allow cursor to auto-hide in view if not moved for a few seconds.
 
-- [ ] ****BUG**** Fix schedule to replace previous day when reloading. Currently it just appends it to the end. A fix has been implemented and will be tested on day switch (not in repo currently).
+- [ ] ****BUG**** Schedule does not update when changing days on reload. Currently justs refreshes table even when grabbing new data.
 
 - [x] ****BUG FIX**** Social media widgets do not currently refresh automatically and do not update after page load. This has now been fixed (not in repo currently).
 
