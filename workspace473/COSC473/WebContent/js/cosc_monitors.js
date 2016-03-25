@@ -1,30 +1,61 @@
 /* 
  * Main JavaScript file for the COSC Hall Monitors
+ * https://github.com/rjsylvia/COSC-473
  */
-
+"use strict";
 $(document).ready(function(){
-    datetime = $('#datetime');			// Assign the scrolling date to the html id
-	day = $('#day');					// Assign the day to the html day id used in Class Schedule header
-	getDayAbbrev();						// Get the current day abbreviation
-    updateDate();						// Continuously update the datetime shown to keep in sync with time on machine
-    setInterval(updateDate, 1000); 			// Update every second to project real time
+    datetime = $('#datetime');					// Assign the scrolling date to the html id
+	day = $('#day');							// Assign the day to the html day id used in Class Schedule header
+	getDayAbbrev();								// Get the current day abbreviation
+    updateDate();								// Continuously update the datetime shown to keep in sync with time on machine
+    setInterval(updateDate, 1000); 				// Update every second to project real time
 	
-	getWeather();              			// Gets the initial weather on load of page
-	setInterval(getWeather, 180000); 	// Update every 3 min
+	getWeather();              					// Gets the initial weather on load of page
+	setInterval(getWeather, 180000); 			// Update every 3 min
 	 
-	getClasses();						// Get the class schedule from the appropriate CSV file
-	setInterval(getClasses, 10800000); 	// Update every 3 hours to stay updated for next day
+	getClasses();								// Get the class schedule from the appropriate CSV file
+	setInterval(reloadClassSchedule, 60000); 	// Update every 1 hour to stay updated for next day
 	
-	setInterval(reloadNewsLiveFeed, 10800000); // Reload every 3 hours to refresh the live feed
+	setInterval(reloadNewsLiveFeed, 10800000); 	// Reload news live feed every 3 hours
+	setInterval(reloadSocialMedia, 600000);		// Reload social media every 10 minutes
 	
 	// Cycles transition between headers/info every 29 seconds and an additional 1 second for transition
-	// totaling 30 seconds total. This applies to all of the cycle function calls below.
+	// totaling 30 seconds total. This applies to all of the cycle function calls below (besides header for
+	// news, which is at 6.5 seconds with additional 1 second for transition totaling 7.5 seconds total).
 	setCycles();
+	
+	// Sets up to hide the mouse pointer after no movement for 3 seconds
+	$(function () {
+	    var timer;
+	    var fadeInBuffer = false;
+	    $(document).mousemove(function () {
+	        if (!fadeInBuffer) {
+	            if (timer) {
+	                clearTimeout(timer);
+	                timer = 0;
+	            }
+	            $('html').css({
+	                cursor: ''
+	            });
+	        } else {
+	            fadeInBuffer = false;
+	        }
+
+
+	        timer = setTimeout(function () {
+	            $('html').css({
+	                cursor: 'none'
+	            });
+	            fadeInBuffer = true;
+	        }, 3000)
+	    });
+	});
+	
 });
 
 // On resize of the window, execute the function to resize the news live feed
 window.onresize = function() {
-	sizeFrame(document.getElementById('national-news-feed'))
+	sizeFrame(document.getElementById('national-news-feed'));
 }
 
 // Declare some variables to be used in functions
@@ -61,14 +92,15 @@ var getDayAbbrev = function () {
     	abbrev = "Sa";
         break;
 	}
+	return abbrev;
 }
 		
 /*
  * Update the datetime to keep in sync with time on machine
  */
 var updateDate = function () {
-    date = moment(new Date())
-    datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+    date = moment(new Date());
+    datetime.html(date.format('dddd, MMMM Do YYYY, h:mm a'));
 
 	day.html(date.format('dddd'));
 };
@@ -87,14 +119,14 @@ function getClasses() {
 	
 	// Gets IP address, needed for changing file to be read for monitors
 	$.getJSON("http://jsonip.com/?callback=?", function (data) {
-        console.log(data);
+        
 //        alert(data.ip);
         
 //        Tested IP addresses from local dorm network
 //        Machine IP addresses given in email are as follows:
 //        STR320 -  144.80.64.252
 //        STR331 -  144.80.64.251
-//        STR112A - 144,80.64.253
+//        STR112A - 144.80.64.253
         
 //        if (data.ip == STR331_ip) {
 //        	file = 'data/str331_data.csv';
@@ -104,33 +136,36 @@ function getClasses() {
 //        	file = 'data/str112A_data.csv';
 //        }
        
-        if (data.ip == '') {
-        	file = 'data/str331_data.csv';
-        } else if (data.ip == '') {
-        	file = 'data/str320_data.csv';
-        } else {
-        	file = 'data/str112A_data.csv';
-        }
-        
+//        if (data.ip == '') {
+//        	file = 'data/str331_data.csv';
+//        } else if (data.ip == '') {
+//        	file = 'data/str320_data.csv';
+//        } else {
+//        	file = 'data/str112A_data.csv';
+//        }
+		
+		file = 'data/str112A_data.csv';
+		var  ab = getDayAbbrev();
+		
         $.get(file, function(data) {
     		var build = '<table cellpadding="5" cellspacing="2">\n';
     		var rows = data.split("\n");
     		rows.forEach( function getvalues(thisRow) {
     			build += "<tr>\n";
     			var columns = thisRow.split(",");
-    			if (columns[3].indexOf(abbrev) > -1) {	
-    				for (var i=0;i<columns.length-1;i++){ 
+    			if (columns[3].indexOf(ab) > -1) {	
+    				for (var i = 0; i < columns.length - 1; i++){ 
     					build += "<td>" + columns[i] + "</td>\n";
     				}   			
     				build += "</tr>\n";
     			}
     		})
     		build += "</table>";
-    		$('#schedule').append(build);
+    		$('#schedule').html(build);
     		
-    		if (abbrev === "Sa" || abbrev === "Su") {
+    		if (ab === "Sa" || ab === "Su") {
     			var str = "No classes";
-    			$('#schedule').append("<h2>" + str + "</h2>");
+    			$('#schedule').html("<h2>" + str + "</h2>");
     		}
     	});
     });
@@ -138,20 +173,48 @@ function getClasses() {
 }
 
 /*
+ * Refresh the class schedule
+ */
+function reloadClassSchedule() {
+	$('#schedule').html('');
+	getClasses();
+}
+
+/*
  * Get the weather information to display in the top right
  */
 function getWeather() {
+//	var woeid = '2427026';
+//	var weatherURL = 'http://weather.yahooapis.com/forecastrss?w=' + woeid;
+//	$.ajax({
+//	    url: "http://query.yahooapis.com/v1/public/yql",
+//	    async: true,
+//	    data: {
+//	        q: "select * from xml where url='" + weatherURL + "'",
+//	        format: "json"
+//	    },
+//	    success: function (data) {
+//	        var weather = data.query.results.rss.channel.item;
+//	        var html = '<i class="icon-' + weather.condition.code + '"></i>' + '&nbsp' + weather.condition.temp + '&deg;F';
+//	        $('#weather').html(html);
+//
+//	    },
+//	    error: function () {
+//	        $('#weather').html('Not available');
+//	    }
+//	});
+
 	$.simpleWeather({
     location: 'Indiana, PA',
     woeid: '',
     unit: 'f',
     success: function(weather) {
-      html =  '<i class="icon-'+ weather.code +'"></i> '+ weather.temp + '&deg;' + weather.units.temp;
+    	var html =  '<i class="icon-'+ weather.code +'"></i> '+ weather.temp + '&deg;' + weather.units.temp;
   
-      $("#weather").html(html);
+    	$("#weather").html(html);
     },
     error: function(error) {
-      $("#weather").html('<p>'+ error +'</p>');
+    	$("#weather").html('<p>'+ error +'</p>');
     }
   });
 }
@@ -160,7 +223,12 @@ function getWeather() {
  * Reload the live news feed to make sure it is consistently running
  */
 function reloadNewsLiveFeed() {
-	$("#livefeed").contentWindow.location.reload();
+	document.getElementById('national-news-feed').src = document.getElementById('national-news-feed').src;
+}
+
+function reloadSocialMedia() {
+	twttr.widgets.load();
+	FB.XFBML.parse();
 }
 
 /*

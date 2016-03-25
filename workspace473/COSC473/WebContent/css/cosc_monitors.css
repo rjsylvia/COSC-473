@@ -22,7 +22,7 @@
     font-family: 'limerick-regularregular', Futura, Arial, sans-serif;
 	font-weight: bold;
 	height: 5vh;
-	line-height: 0.65;
+	line-height: 0.68;
 }
 
 h1 {
@@ -50,7 +50,7 @@ h1 {
 
 /* Panel styling */
 .leftside_panel {
-	width: 48.8vw;
+	width: 48.5vw;
 	height: 45vh;
 	float: left;
 	border-style: solid;
@@ -60,7 +60,7 @@ h1 {
 }
 
 .rightside_panel {
-	width: 48.8vw;
+	width: 48.5vw;
 	height: 45vh;
 	float: right;
 	border-style: solid;
@@ -84,6 +84,7 @@ p {
 	font-family: 'limerick-regularregular', Futura, Arial, sans-serif;
 	font-size: 20px;
 	font-weight: bold;
+	text-align: center;
 	color: white;
 }
 
@@ -112,9 +113,11 @@ table, tr, td {
 }
 
 table {
-	border: solid black;
-	width: 100% !important;
-	background-color: #9F1B32;
+	border: 2px solid black;
+    width: 99% !important;
+    background-color: #9F1B32;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #schedule h2 {
@@ -141,5 +144,5 @@ iframe#national-news-feed {
 }
 
 #live-feed {
-	margin-top: 4.4vh;
+	margin-top: 4.2vh;
 }
