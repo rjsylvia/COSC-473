@@ -17,7 +17,7 @@ This is a README file for any comments you guys would like to leave for a remind
 
 - [x] Allow cursor to auto-hide in view if not moved for a few seconds. This feature has been added (not in repo currently).
 
-- [ ] ****BUG**** Schedule does not update when changing days on reload. Currently justs refreshes table even when grabbing new data.
+- [x] ****BUG FIX**** Schedule does not update when changing days on reload. Currently justs refreshes table even when grabbing new data. This has now been fixed (not in repo currently).
 
 - [x] ****BUG FIX**** Social media widgets do not currently refresh automatically and do not update after page load. This has now been fixed (not in repo currently).
 
