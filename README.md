@@ -15,12 +15,5 @@ This is a README file for any comments you guys would like to leave for a remind
 
 - [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/19) Tested my approach with my local IP addresses on my laptop and desktop and it DOES read a different file depending on what machine I was running it on. All this needs is testing on the actual TV monitors and their corresponding IP addresses to make sure it 100% works.**
 
-- [x] Allow cursor to auto-hide in view if not moved for a few seconds. This feature has been added (not in repo currently).
-
-- [x] ****BUG FIX**** Schedule does not update when changing days on reload. Currently justs refreshes table even when grabbing new data. This has now been fixed (not in repo currently).
-
-- [x] ****BUG FIX**** Social media widgets do not currently refresh automatically and do not update after page load. This has now been fixed (not in repo currently).
-
-- [x] ****BUG FIX**** News live feed was not refreshing correctly. This has now been fixed (not in repo currently).
 
 Tentative deadline for all major functionality of web app: **Thursday, April 7th, 2016**
