@@ -17,6 +17,6 @@ This is a README file for any comments you guys would like to leave for a remind
 
 - [ ] ****BUG FIX**** The custom font that was set in cosc_monitors.css was not applying to h1 headers, the scrolling datetime, and weather temperature. This is fixed (currently not in repo) and changed to use the same font the IUP website uses for the "Upcoming Events" header at http://www.iup.edu/news-events/. It is now used across anywhere there is text to keep a consistent style across the newer updated IUP websites.
 
-- [ ] ****BUG**** Randomy, the livestream will sometimes no longer automatically play on load and constantly buffer. Through early investigation, the cause cannot be pinpointed down to exactly what is causing this bug.
+- [ ] ****BUG**** Randomy, the livestream will sometimes no longer automatically play on load and constantly buffer. Through early investigation, the cause cannot be pinpointed down to exactly what is causing this bug. **Update (3/29) I replaced the news live feed with a news live feed from a different source that has all the same options, but also a bit better quality. This seems to be working much more consistently, which just may end up replacing the old news live feed.**
 
 Tentative deadline for all major functionality of web app: **Thursday, April 7th, 2016**
