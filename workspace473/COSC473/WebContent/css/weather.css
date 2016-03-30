@@ -10,11 +10,10 @@
 i {
   color: #fff;
   font-family: weather;
-  font-size: 80px;
+  font-size: 70px;
   font-weight: normal;
   font-style: normal;
-  
-  text-transform: none;
+  height: 40px;
 }
 
 .icon-0:before { content: ":"; }

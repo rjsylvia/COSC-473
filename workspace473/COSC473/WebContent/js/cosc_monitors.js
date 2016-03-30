@@ -14,7 +14,7 @@ $(document).ready(function(){
 	setInterval(getWeather, 180000); 			// Update every 3 min
 	 
 	getClasses();								// Get the class schedule from the appropriate CSV file
-	setInterval(reloadClassSchedule, 60000); 	// Update every 1 hour to stay updated for next day
+	setInterval(reloadClassSchedule, 3600000); 	// Update every 1 hour to stay updated for next day
 	
 	setInterval(reloadNewsLiveFeed, 10800000); 	// Reload news live feed every 3 hours
 	setInterval(reloadSocialMedia, 600000);		// Reload social media every 10 minutes
@@ -102,7 +102,7 @@ var updateDate = function () {
     date = moment(new Date());
     datetime.html(date.format('dddd, MMMM Do YYYY, h:mm a'));
 
-	day.html(date.format('dddd'));
+	//day.html(date.format('dddd'));
 };
 
 /*
@@ -130,21 +130,17 @@ function getClasses() {
         
 //        if (data.ip == STR331_ip) {
 //        	file = 'data/str331_data.csv';
+//			$('#room').html('STR331');
 //        } else if (data.ip == STR320_ip) {
 //        	file = 'data/str320_data.csv';
+//			$('#room').html('STR320');
 //        } else if (data.ip == STR112A_ip){
 //        	file = 'data/str112A_data.csv';
+//			$('#room').html('STR112A');
 //        }
-       
-//        if (data.ip == '') {
-//        	file = 'data/str331_data.csv';
-//        } else if (data.ip == '') {
-//        	file = 'data/str320_data.csv';
-//        } else {
-//        	file = 'data/str112A_data.csv';
-//        }
-		
+       		
 		file = 'data/str112A_data.csv';
+		$('#room').html('STR112A');
 		var  ab = getDayAbbrev();
 		
         $.get(file, function(data) {
@@ -209,7 +205,7 @@ function getWeather() {
     woeid: '',
     unit: 'f',
     success: function(weather) {
-    	var html =  '<i class="icon-'+ weather.code +'"></i> '+ weather.temp + '&deg;' + weather.units.temp;
+    	var html =  '<i id="weather-icon" class="icon-'+ weather.code +'"></i> <span id="weather-info">'+ weather.temp + '&deg;' + weather.units.temp + '</span>';
   
     	$("#weather").html(html);
     },
