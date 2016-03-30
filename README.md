@@ -3,6 +3,7 @@ COSC-473 repository
 
 This is a README file for any comments you guys would like to leave for a reminder or any notes for the rest of the group to see.
 
+Items will be checked off once they are fixed locally, and removed from this file once the fixes are added to the repo.
 
 **To Do List/Checklist:**
 
@@ -15,8 +16,8 @@ This is a README file for any comments you guys would like to leave for a remind
 
 - [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/29) This feature is tentatively scheduled to be tested for part of our meeting time this week (Thursday, March 31st).**
 
-- [ ] ****BUG FIX**** The custom font that was set in cosc_monitors.css was not applying to h1 headers, the scrolling datetime, and weather temperature. This is fixed (currently not in repo) and changed to use the same font the IUP website uses for the "Upcoming Events" header at http://www.iup.edu/news-events/. It is now used across anywhere there is text to keep a consistent style across the newer updated IUP websites.
+- [x] ****BUG FIX**** The custom font that was set in cosc_monitors.css was not applying to the document. This is now fixed (**currently not in repo**) and all font is changed to use the same font style of the more up-to-date IUP web sites.
 
-- [ ] ****BUG**** Randomy, the livestream will sometimes no longer automatically play on load and constantly buffer. Through early investigation, the cause cannot be pinpointed down to exactly what is causing this bug. **Update (3/29) I replaced the news live feed with a news live feed from a different source that has all the same options, but also a bit better quality. This seems to be working much more consistently, which just may end up replacing the old news live feed.**
+- [x] ****BUG FIX**** Randomly, the livestream will sometimes no longer automatically play on load and constantly buffer. The cause has been identified as the stream was having server issues out of our control for serveral days straight. Therefore, it was replaced with a new news live feed (**currently not in repo**).
 
 Tentative deadline for all major functionality of web app: **Thursday, April 7th, 2016**
