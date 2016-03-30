@@ -16,8 +16,4 @@ Items will be checked off once they are fixed locally, and removed from this fil
 
 - [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/29) This feature is tentatively scheduled to be tested for part of our meeting time this week (Thursday, March 31st).**
 
-- [x] ****BUG FIX**** The custom font that was set in cosc_monitors.css was not applying to the document. This is now fixed (**currently not in repo**) and all font is changed to use the same font style of the more up-to-date IUP web sites.
-
-- [x] ****BUG FIX**** Randomly, the livestream will sometimes no longer automatically play on load and constantly buffer. The cause has been identified as the stream was having server issues out of our control for serveral days straight. Therefore, it was replaced with a new news live feed (**currently not in repo**).
-
 Tentative deadline for all major functionality of web app: **Thursday, April 7th, 2016**
