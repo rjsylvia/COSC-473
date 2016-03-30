@@ -13,7 +13,7 @@ This is a README file for any comments you guys would like to leave for a remind
     
 - [ ] Import IUP Campus Events and Sports News using a RSS feed from the IUP website.
 
-- [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/19) Tested my approach with my local IP addresses on my laptop and desktop and it DOES read a different file depending on what machine I was running it on. All this needs is testing on the actual TV monitors and their corresponding IP addresses to make sure it 100% works.**
+- [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/29) This feature is tentatively scheduled to be tested for part of our meeting time this week (Thursday, March 31st).**
 
 - [ ] ****BUG FIX**** The custom font that was set in cosc_monitors.css was not applying to h1 headers, the scrolling datetime, and weather temperature. This is fixed (currently not in repo) and changed to use the same font the IUP website uses for the "Upcoming Events" header at http://www.iup.edu/news-events/. It is now used across anywhere there is text to keep a consistent style across the newer updated IUP websites.
 
