@@ -20,11 +20,11 @@ Items will be checked off once they are fixed locally, and removed from this fil
     
 - [ ] Import IUP Campus Events and Sports News using a RSS feed from the IUP website.
 
-- [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 4/1) This feature is will be tested before our next meeting on 4/7.**
+- [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 4/1) This feature will be tested before our next meeting on 4/7.**
 
 - [x] Change the reload for getting the weather from 3 min to 30 min. This has been changed (not currently in repo).
 
-- [x] Change the weather to display nothing if an error comes back and report the error to the console instead. After receiving an error, set to try and retrieve the weather again. This has been changed (not currently in repo).
+- [x] Change the weather to display nothing if an error comes back and report the error to the console instead. After receiving an error, set to try and retrieve the weather again after 5 seconds (to avoid constant loading if multiple failures). This has been changed (not currently in repo).
 
 - [ ] Add a refresh feature for the COSC Events & Tutoring, in case information is added during runtime.
 
