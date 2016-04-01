@@ -20,7 +20,7 @@ Items will be checked off once they are fixed locally, and removed from this fil
     
 - [ ] Import IUP Campus Events and Sports News using a RSS feed from the IUP website.
 
-- [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 3/29) This feature is tentatively scheduled to be tested for part of our meeting time this week (Thursday, March 31st).**
+- [ ] Use IP address to determine what CSV file to read for class schedule section. **(Update 4/1) This feature is will be tested before our next meeting on 4/7.**
 
 - [x] Change the reload for getting the weather from 3 min to 30 min. This has been changed (not currently in repo).
 
