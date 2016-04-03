@@ -1,5 +1,3 @@
-// Created from Twitter widget creation
-
 !function(d,s,id){
 	var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
 	if(!d.getElementById(id)){
@@ -8,5 +6,4 @@
 		js.src=p+"://platform.twitter.com/widgets.js";
 		fjs.parentNode.insertBefore(js,fjs);
 	}
-}
-(document,"script","twitter-wjs");
+}(document,"script","twitter-wjs");

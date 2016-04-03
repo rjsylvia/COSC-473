@@ -4,8 +4,10 @@
 	<meta charset="ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="css/cosc_monitors.css">
 	<link rel="stylesheet" type="text/css" href="css/weather.css">
+	<link rel="stylesheet" type="text/css" href="css/rssfeed.css">
 	<link rel="shortcut icon" href="images/favicon.ico"/>
 	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="js/FeedEk.js"></script>
 	<script type="text/javascript" src="js/moment.min.js"></script>
 	<script type="text/javascript" src="js/jquery.simpleWeather.js"></script>
 	<script type="text/javascript" src="js/jquery.cycle.js"></script>
@@ -16,19 +18,16 @@
 	<title>COSC Hall Monitors</title>
 </head>
 <body>
-	<div>
-		<img id="iup_hawk" src="images/iup_crimson_hawk.jpg">
-	</div>
-	
-	<div id="weather"></div>
 	<div id="toolbar">
-		<marquee behavior="scroll" direction="left" scrollamount="8" id="datetime"></marquee>
+		<img id="iup_hawk" src="images/iup_crimson_hawk.jpg"/>
+		<marquee style="width: 87%" behavior="scroll" direction="left" scrollamount="8"><span id="datetime">&nbsp;</span></marquee>
+		<div id="weather"></div>
 	</div>
 	
-	<div id="container">
-		<div class="leftside_panel">
-			<div id="cosc_headers">
-				<h1>CLASS SCHEDULE FOR <span id="day"></span><span id="room"></span></h1>
+	<div>
+		<div class="leftside panel">
+			<div class="panel_header" id="cosc_headers">
+				<h1>CLASS SCHEDULE FOR <span id="room"></span></h1>
 				<h1>COSC EVENTS & TUTORING</h1>
 			</div>
 			<div class="comp_sci_info">
@@ -36,15 +35,18 @@
 				<div align="center" id="cosc-events-tutoring"><iframe id="cosc-events-page" src="cosc-events.html"></iframe></div>
 			</div>
 		</div>
-		<div class="rightside_panel">
-			<div id="iup_headers">
-				<h1>IUP CAMPUS EVENTS</h1>
+		<div class="rightside panel">
+			<div class="panel_header" id="iup_headers">
+				<h1>IUP CAMPUS NEWS & EVENTS</h1>
 				<h1>IUP SPORTS NEWS</h1>
 			</div>
-			<div id="iup_campus_events"></div>
+			<div id="iup_events">
+				<div id="iup_campus_events"></div>
+				<div id="iup_sport_events"></div>
+			</div>
 		</div>
-		<div id="soc-media-div" class="leftside_panel">
-			<div id="media_headers">
+		<div id="soc-media-div" class="leftside panel">
+			<div class="panel_header" id="media_headers">
 				<h1>IUP TWITTER</h1>
 				<h1>IUP FACEBOOK</h1>
 			</div>
@@ -53,8 +55,8 @@
 				<div class="soc-media" id="facebook-widget" align="center"><a class="fb-page" data-href="https://www.facebook.com/iupedu" data-width="500" data-height="385" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></a></div>
 			</div>
 		</div>
-		<div id="live-feed-div" class="rightside_panel">
-			<div id="frame_headers">
+		<div id="live-feed-div" class="rightside panel">
+			<div class="panel_header" id="frame_headers">
 				<h1 id="frame-header">NATIONAL NEWS</h1>
 				<h1>BROUGHT TO YOU BY KMOV</h1>
 			</div>

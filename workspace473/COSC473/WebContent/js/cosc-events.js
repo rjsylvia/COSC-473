@@ -1,14 +1,11 @@
-/*
- * Javascript file for the independent COSC events HTML page
- */
+// Javascript file for the independent COSC events HTML page
 $(document).ready(function() {
-	// Append the COSC events to its panel
 	appendCoscEvents();
+	setInterval(appendCoscEvents, 600000);     // Refresh the COSC events every 10 minutes
 });
 
-/*
- * Add the data from the cosc-events text file to the HTML page
- */
+
+// Append the data from the cosc-events text file to the inner HTML page
 function appendCoscEvents() {
 	$.get('data/cosc-events.txt', function(data) {
 		var str = '';
@@ -16,6 +13,6 @@ function appendCoscEvents() {
 		rows.forEach(function getvalues(thisRow) {
 			str += '<p>' + thisRow + '</p>';
 		});
-		$('#cosc-events-body').append(str);
+		$('#cosc-events-body').html(str);
 	});
 }
