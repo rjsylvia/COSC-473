@@ -18,6 +18,4 @@ Items will be checked off once they are fixed locally, and removed from this fil
   2. -1.0.0 - 1.0.1 When creating a new class the new line for the CSV was added to the top instead of being sorted to the correct spot.
   3. -1.0.1 - 1.0.2 There was an issue with sorting happening at 12:XXPM, which wasn't sorting by minutes, this should be fixed now.
 
-- [x] Use IP address to determine what CSV file to read for class schedule section. **(Update 4/7) This feature passed its first test, doing one more test during COSC 365 today on the remaining two monitors.**
-
-Tentative deadline for all major functionality of web app: **Thursday, April 7th, 2016**
+- [ ] Re-do some styling for the web app to fit all the monitors. From research, the resolution of the monitors seem to be 1366 x 768. Setting resolution on any monitor to that will help with making correct changes.
