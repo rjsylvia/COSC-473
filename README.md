@@ -13,9 +13,5 @@ Items will be checked off once they are fixed locally, and removed from this fil
 
 **To Do List/Checklist:**
 
-- [x] Test Brandon's "Master Class Editor 1.0.2.jar" program on the csv files and give feedback reguarding the program in the groupme.
-  1. Make sure to use the newest version of the editor.
-  2. -1.0.0 - 1.0.1 When creating a new class the new line for the CSV was added to the top instead of being sorted to the correct spot.
-  3. -1.0.1 - 1.0.2 There was an issue with sorting happening at 12:XXPM, which wasn't sorting by minutes, this should be fixed now.
-
-- [ ] Re-do some styling for the web app to fit all the monitors. From research, the resolution of the monitors seem to be 1366 x 768. Setting resolution on any monitor to that will help with making correct changes.
+- [ ] Finalize Class Editor and COSC Events Editor program.
+- [ ] Finalize documentation for whole project.
