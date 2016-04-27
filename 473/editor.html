@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='0'>
+	<meta http-equiv='pragma' content='no-cache'>
+	<link rel="stylesheet" type="text/css" href="css/cosc_monitors.css">
+	<link rel="shortcut icon" href="images/favicon.ico"/>
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="js/editors.js"></script>
+	<title>COSC Editor</title>
+</head>
+<body>
+	<h1>CLASS AND EVENTS EDITOR</h1>	
+ 	<div style="height: 90vh !important" class="leftside pane">
+ 		<div id="room-loc">
+			<label style="padding: 0px">ROOM: </label>
+			<select onchange="getCurrentClasses()">
+ 				<option id="str331" value="str331">STR331</option>
+ 				<option id="str320" value="str320">STR320</option>
+ 				<option id="str112a" value="str112a">STR112A</option>
+ 			</select>
+ 		</div>
+ 		<h1 style="height:35px"><span id="classroom"></span> SCHEDULE</h1>
+ 		<div id="class-schedule"></div>
+ 	</div>
+ 	
+ 	<div id="add-class" class="rightside pane">
+ 		<h1>ADD A CLASS</h1>
+ 		<form id="class-add-form" action="add-class.php" method="POST">
+ 			<label class="form-label" for="add-begin-time">Begin Time:</label>
+ 			<input type="text" name="add-begin-time" id="add-begin-time" maxlength="5" style="width: 60px">
+ 			<select id="add-timezone-begin" name="add-timezone-begin">
+ 				<option value="AM">AM</option>
+ 				<option value="PM">PM</option>
+ 			</select>
+ 			<label class="form-label" for="add-end-time">End Time:</label>
+ 			<input type="text" name="add-end-time" id="add-end-time" maxlength="5" style="width: 60px">
+ 			<select id="add-timezone-end" name="add-timezone-end">
+ 				<option value="PM">PM</option>
+ 				<option value="AM">AM</option>
+ 			</select>
+ 			<label class="form-label">Room:</label>
+ 			<select id="add-classroom" name="add-classroom">
+ 				<option id="str331" value="str331">STR331</option>
+ 				<option id="str320" value="str320">STR320</option>
+ 				<option id="str112a" value="str112a">STR112A</option>
+ 			</select><br>
+ 			<br>
+ 			<label class="form-label" for="add-dept-code">DEPT:</label>
+ 			<input type="text" name="add-dept-code" id="add-dept-code" value="COSC" maxlength="4" style="width: 50px" readonly>
+			<label>&nbsp;</label>
+			<label class="form-label" for="add-class-code">CLASS#:</label>
+ 			<input type="text" name="add-class-code" id="add-class-code" maxlength="3" style="width: 40px">
+ 			<label>&nbsp;</label>
+			<label class="form-label" for="add-section-code">SECT#:</label>
+ 			<input type="text" name="add-section-code" id="add-section-code" maxlength="3" style="width: 40px"><br>
+ 			<br>
+ 			<label class="form-label" for="add-class-name">Class Name:</label>
+ 			<input type="text" name="add-class-name" id="add-class-name" style="width: 270px"><br>
+ 			<br>
+ 			<label class="form-label">Class Days:</label>
+ 			<input type="checkbox" id="add-mon-box" name="add-class-days[]" value="M"><label>Monday</label>
+ 			<input type="checkbox" id="add-tues-box" name="add-class-days[]" value="T"><label>Tuesday</label>
+ 			<input type="checkbox" id="add-wed-box" name="add-class-days[]" value="W"><label>Wednesday</label>
+ 			<input type="checkbox" id="add-thurs-box" name="add-class-days[]" value="R"><label>Thursday</label>
+ 			<input type="checkbox" id="add-fri-box" name="add-class-days[]" value="F"><label>Friday</label><br>
+ 			<br>
+ 			<div style="text-align: center"><input type="submit" value="Add"></div>
+ 		</form>
+ 	</div>
+ 	
+ 	<div id="edit-class" class="rightside pane" >
+ 		<h1>EDIT A CLASS</h1>
+ 		<form id="class-edit-form" action="edit-class.php" method="POST" onsubmit="reloadClasses()">
+ 			<label class="form-label" for="class-item-list">Pick a class to edit:</label>
+ 			<select id="class-item-list" name="classname" onchange="fillEditForm(classes, beginTimes, endTimes, classNames, classDays)"></select><br><br>
+ 			<label class="form-label" for="edit-begin-time">Begin Time:</label>
+ 			<input type="text" name="edit-begin-time" id="edit-begin-time" maxlength="5" style="width: 60px">
+ 			<select id="edit-timezone-begin" name="edit-timezone-begin">
+ 				<option value="AM">AM</option>
+ 				<option value="PM">PM</option>
+ 			</select>
+ 			<label class="form-label" for="edit-end-time">End Time:</label>
+ 			<input type="text" name="edit-end-time" id="edit-end-time" maxlength="5" style="width: 60px">
+ 			<select id="edit-timezone-end" name="edit-timezone-end">
+ 				<option value="PM">PM</option>
+ 				<option value="AM">AM</option>
+ 			</select>
+ 			<label class="form-label">Room:</label>
+			<input type="text" name="edit-classroom" id="edit-classroom" style="width: 60px" readonly><br>
+ 			<br>
+ 			<label class="form-label" for="edit-dept-code">DEPT:</label>
+ 			<input type="text" name="edit-dept-code" id="edit-dept-code" maxlength="4" style="width: 50px" readonly>
+			<label>&nbsp;</label>
+			<label class="form-label" for="edit-class-code">CLASS#:</label>
+ 			<input type="text" name="edit-class-code" id="edit-class-code" maxlength="3" style="width: 40px">
+ 			<label>&nbsp;</label>
+			<label class="form-label" for="edit-section-code">SECT#:</label>
+ 			<input type="text" name="edit-section-code" id="edit-section-code" maxlength="3" style="width: 40px"><br>
+ 			<br>
+ 			<label class="form-label" for="edit-class-name">Class Name:</label>
+ 			<input type="text" name="edit-class-name" id="edit-class-name" style="width: 270px"><br>
+ 			<br>
+ 			<label class="form-label">Class Days:</label>
+ 			<input type="checkbox" id="monday-box" name="class-days[]" value="M"><label>Monday</label>
+ 			<input type="checkbox" id="tuesday-box" name="class-days[]" value="T"><label>Tuesday</label>
+ 			<input type="checkbox" id="wednesday-box" name="class-days[]" value="W"><label>Wednesday</label>
+ 			<input type="checkbox" id="thursday-box" name="class-days[]" value="R"><label>Thursday</label>
+ 			<input type="checkbox" id="friday-box" name="class-days[]" value="F"><label>Friday</label><br>
+ 			<br>
+ 			<div style="text-align: center"><input type="submit" name="update" value="Update"><input type="submit" name="delete" value="Delete" style="margin-left: 20px"></div>
+ 		</form>
+ 	</div>
+ 	
+ 	<div class="rightside pane">
+ 		<h1>EDIT COSC EVENTS</h1>
+ 		<form action="update_cosc_events.php" method="POST">
+ 			<textarea name="text" id="cosc-events-text"></textarea>
+ 			<div style="text-align: center"><input type="submit" id="update-events" value="Update" onclick="reloadCurrentEvents()"></div>
+ 		</form>
+ 	</div>
+</body>
+</html>

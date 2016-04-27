@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="css/cosc_monitors.css">
+	<link rel="shortcut icon" href="images/favicon.ico"/>
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="js/FeedEk.js"></script>
+	<script type="text/javascript" src="js/moment.min.js"></script>
+	<script type="text/javascript" src="js/jquery.simpleWeather.js"></script>
+	<script type="text/javascript" src="js/jquery.cycle.js"></script>
+	<script type="text/javascript" src="js/cosc-monitors.js"></script>
+	<script type="text/javascript" src="js/social-media.js"></script>
+	<title>COSC Hall Monitors</title>
+</head>
+<body>
+	<div id="toolbar">
+		<img id="iup_hawk" src="images/iup_crimson_hawk.jpg"/>
+		<marquee style="width: 86%" behavior="scroll" direction="left" scrollamount="8"><span id="datetime">&nbsp;</span></marquee>
+		<div id="weather"></div>
+	</div>
+	
+	<div>
+		<div class="leftside panel">
+			<div class="panel_header" id="cosc_headers">
+				<h1>CLASS SCHEDULE FOR <span id="room"></span></h1>
+				<h1>COSC EVENTS & TUTORING</h1>
+			</div>
+			<div id="comp_sci_info">
+				<div id="schedule" style="width: 100%"></div>
+				<div align="center" style="width: 100%"><iframe id="cosc-events-page" src="cosc-events.html"></iframe></div>
+			</div>
+		</div>
+		<div class="rightside panel">
+			<div class="panel_header" id="iup_headers">
+				<h1>IUP CAMPUS NEWS & EVENTS</h1>
+				<h1>IUP SPORTS NEWS</h1>
+			</div>
+			<div id="iup_events">
+				<div id="iup_campus_events"></div>
+				<div id="iup_sport_events"></div>
+			</div>
+		</div>
+		<div class="leftside panel">
+			<div class="panel_header" id="media_headers">
+				<h1>IUP TWITTER</h1>
+				<h1>IUP FACEBOOK</h1>
+			</div>
+			<div id="social_media">
+				<div id="twitter-widget" align="center" style="width: 100% !important"><a class="twitter-timeline" href="https://twitter.com/IUPedu" data-widget-id="700924153080258562" data-link-color="#FFFFFF" data-theme="dark" data-chrome="nofooter noheader noborders noscrollbar transparent" data-width="500" data-height="380"></a></div>
+				<div id="facebook-widget" align="center" style="width: 100% !important"><a class="fb-page" data-href="https://www.facebook.com/iupedu" data-width="500" data-height="300" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></a></div>
+			</div>
+		</div>
+		<div id="live-feed-div" class="rightside panel">
+			<div class="panel_header" id="frame_headers">
+				<h1 id="frame-header">NATIONAL NEWS</h1>
+				<h1>BROUGHT TO YOU BY KMOV</h1>
+			</div>
+			<div align="center"><iframe id="national-news-feed" src="//livestream.com/accounts/12654794/events/3896173/player?autoPlay=true&mute=true"> </iframe></div>
+		</div>
+	</div>
+</body>
+</html>
