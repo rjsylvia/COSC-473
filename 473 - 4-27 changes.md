@@ -1,3 +1,8 @@
+**Update 4/29**
+
+cosc-monitors.js
+- Fixed an issue where the class table for cosc-monitors.html was creating blank table rows.
+
 **Update 4/28**
 
 editors.js
