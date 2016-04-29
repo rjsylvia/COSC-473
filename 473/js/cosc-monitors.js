@@ -101,16 +101,16 @@ function getClasses() {
 				$('#schedule').html("<h2>" + build + "</h2>");
 			} else {	// Else build the class schedule table
 				$.get(file, function(data) {
-					var build = '<table cellpadding="3" cellspacing="2">\n';
+					build = '<table cellpadding="3" cellspacing="2">\n';
 					var rows = data.split("\n");
 					rows.forEach(function getvalues(thisRow) {
-						build += "<tr>\n";
 						var columns = thisRow.split(",");
-						if (columns[4].indexOf(ab) > -1) {	
+						if (columns[4].indexOf(ab) > -1) {
+							build += "<tr>\n";							
 							for (var i = 0; i < columns.length - 2; i++){
 								if (i != 2) {
 									build += "<td>" + columns[i] + "</td>\n";
-								} else {
+								} else {	// Formatting time fields into 1 column for better presentation
 									build += "<td>" + columns[i] + ' - ' + columns[i + 1] + "</td>\n";
 								}
 							}   			
