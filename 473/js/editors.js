@@ -102,12 +102,12 @@ function fillEditForm(classes, beginTimes, endTimes, classNames, classDays) {
 	$("#edit-begin-time").val(beginTimes[index].substring(0, 5));
 	$("#edit-end-time").val(endTimes[index].substring(0, 5));
 	$("#edit-class-name").val(classNames[index]);
-	if (beginTimes[index].substring(5) === "AM") {
+	if (beginTimes[index].indexOf("AM") > -1) {
 		document.getElementById("edit-timezone-begin").selectedIndex = 0;
 	} else {
 		document.getElementById("edit-timezone-begin").selectedIndex = 1;
 	}
-	if (endTimes[index].substring(5) === "AM") {
+	if (endTimes[index].indexOf("AM") > -1) {
 		document.getElementById("edit-timezone-end").selectedIndex = 1;
 	} else {
 		document.getElementById("edit-timezone-end").selectedIndex = 0;
@@ -142,11 +142,6 @@ function fillEditForm(classes, beginTimes, endTimes, classNames, classDays) {
 	} else {
 		$("#friday-box").prop("checked", false);
 	}
-	if (classDays[index].indexOf("Sa") > -1) {
-		$("#saturday-box").prop("checked", true);
-	} else {
-		$("#saturday-box").prop("checked", false);
-	}
 }
 
 // Clear the edit form
@@ -162,7 +157,6 @@ function clearEditForm() {
 	$("#wednesday-box").prop("checked", false);
 	$("#thursday-box").prop("checked", false);
 	$("#friday-box").prop("checked", false);
-	$("#saturday-box").prop("checked", false);
 }
 
 // Refresh the current COSC events text from an update from the PHP server
