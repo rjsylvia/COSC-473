@@ -1,4 +1,9 @@
-These are all of the changes with the project since the last upload.
+**Update 4/28**
+
+editors.js
+- Fixed an issue where some classes were incorrectly being assigned PM for their beginning/end times when it should have been AM.
+
+**Update 4/27**
 
 cosc_monitors.css
 
