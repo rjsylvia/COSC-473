@@ -9,5 +9,5 @@ This is a README file for any comments you guys would like to leave for a remind
 - [ ] Finalize documentation for whole project.
 
 **Issues to fix over weekend after 2 day test run**
-- [ ] Fix class table for cosc-monitors.html having more blank <tr></tr> spaces than it should.
+- [ ] Fix class table for cosc-monitors.html having more blank row spaces than it should.
 - [ ] Fix that after prolonged runtime, panels cycling becomes out of synch.
