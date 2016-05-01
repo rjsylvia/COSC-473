@@ -30,13 +30,13 @@
  		<h1>ADD A CLASS</h1>
  		<form id="class-add-form" action="add-class.php" method="POST">
  			<label class="form-label" for="add-begin-time">Begin Time:</label>
- 			<input type="text" name="add-begin-time" id="add-begin-time" maxlength="5" style="width: 60px">
+ 			<input type="text" name="add-begin-time" id="add-begin-time" maxlength="5" style="width: 60px" onkeypress="return isTime(event)">
  			<select id="add-timezone-begin" name="add-timezone-begin">
  				<option value="AM">AM</option>
  				<option value="PM">PM</option>
  			</select>
  			<label class="form-label" for="add-end-time">End Time:</label>
- 			<input type="text" name="add-end-time" id="add-end-time" maxlength="5" style="width: 60px">
+ 			<input type="text" name="add-end-time" id="add-end-time" maxlength="5" style="width: 60px" onkeypress="return isTime(event)">
  			<select id="add-timezone-end" name="add-timezone-end">
  				<option value="PM">PM</option>
  				<option value="AM">AM</option>
@@ -52,7 +52,7 @@
  			<input type="text" name="add-dept-code" id="add-dept-code" value="COSC" maxlength="4" style="width: 50px" readonly>
 			<label>&nbsp;</label>
 			<label class="form-label" for="add-class-code">CLASS#:</label>
- 			<input type="text" name="add-class-code" id="add-class-code" maxlength="3" style="width: 40px">
+ 			<input type="text" name="add-class-code" id="add-class-code" maxlength="3" style="width: 40px" onkeypress="return isNumber(event)">
  			<label>&nbsp;</label>
 			<label class="form-label" for="add-section-code">SECT#:</label>
  			<input type="text" name="add-section-code" id="add-section-code" maxlength="3" style="width: 40px"><br>
@@ -77,13 +77,13 @@
  			<label class="form-label" for="class-item-list">Pick a class to edit:</label>
  			<select id="class-item-list" name="classname" onchange="fillEditForm(classes, beginTimes, endTimes, classNames, classDays)"></select><br><br>
  			<label class="form-label" for="edit-begin-time">Begin Time:</label>
- 			<input type="text" name="edit-begin-time" id="edit-begin-time" maxlength="5" style="width: 60px">
+ 			<input type="text" name="edit-begin-time" id="edit-begin-time" maxlength="5" style="width: 60px" onkeypress="return isTime(event)">
  			<select id="edit-timezone-begin" name="edit-timezone-begin">
  				<option value="AM">AM</option>
  				<option value="PM">PM</option>
  			</select>
  			<label class="form-label" for="edit-end-time">End Time:</label>
- 			<input type="text" name="edit-end-time" id="edit-end-time" maxlength="5" style="width: 60px">
+ 			<input type="text" name="edit-end-time" id="edit-end-time" maxlength="5" style="width: 60px" onkeypress="return isTime(event)">
  			<select id="edit-timezone-end" name="edit-timezone-end">
  				<option value="PM">PM</option>
  				<option value="AM">AM</option>
@@ -95,7 +95,7 @@
  			<input type="text" name="edit-dept-code" id="edit-dept-code" maxlength="4" style="width: 50px" readonly>
 			<label>&nbsp;</label>
 			<label class="form-label" for="edit-class-code">CLASS#:</label>
- 			<input type="text" name="edit-class-code" id="edit-class-code" maxlength="3" style="width: 40px">
+ 			<input type="text" name="edit-class-code" id="edit-class-code" maxlength="3" style="width: 40px" onkeypress="return isNumber(event)">
  			<label>&nbsp;</label>
 			<label class="form-label" for="edit-section-code">SECT#:</label>
  			<input type="text" name="edit-section-code" id="edit-section-code" maxlength="3" style="width: 40px"><br>
