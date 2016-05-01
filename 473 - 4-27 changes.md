@@ -1,3 +1,21 @@
+** Update 5/1**
+
+cosc_monitors.css
+- Fixed an issue where the table was slightly misaligned underneath the header in editor.html
+
+editors.js
+- Added function for check to only allow numbers and ":" for the time fields
+- Added function for check to only allow numbers to be entered for the course numbers
+	- This does not apply for section codes as a section code may have letters (e.g. W01)
+
+PHP files
+- Added more checks to make sure all fields are filled in when attempting to add/update a class/update COSC events
+	- If all fields are not filled, it simply will not add/update the information
+- Added sorting upon adding/editing a class to make sure the display is always correct when the monitors grab the information from the files
+
+editor.html
+- Added events to activate the checks for the functions that were added in editor.js
+
 **Update 4/29**
 
 cosc-monitors.js
