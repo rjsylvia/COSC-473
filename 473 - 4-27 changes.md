@@ -1,4 +1,4 @@
-** Update 5/1**
+**Update 5/1**
 
 cosc_monitors.css
 - Fixed an issue where the table was slightly misaligned underneath the header in editor.html
