@@ -5,9 +5,5 @@ This is a README file for any comments you guys would like to leave for a remind
 
 **To Do List/Checklist:**
 
-- [x] Finalize Class Editor and COSC Events Editor program (**just needs sorting function for class schedule**).
-- [ ] Finalize documentation for whole project.
-
-**Issues to fix over weekend after 2 day test run**
-- [x] Fix class table for cosc-monitors.html having more blank row spaces than it should.
-- [ ] Fix that after prolonged runtime, panels cycling becomes out of synch.
+- [x] Finalize Class Editor and COSC Events Editor program.
+- [x] Finalize documentation for whole project.
