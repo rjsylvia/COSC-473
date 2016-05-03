@@ -1,7 +1,6 @@
 
 /**
  * Original Code Written by Brandon J. Rosales
- * Do not move or remove or edit this comment
  * This is a CSV editor made for the class portion for our project in 473.
  */
 
@@ -14,6 +13,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -42,28 +43,44 @@ public class FileEditor extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
-		JFileChooser fc = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT and CSV files", "csv", "txt");
-		fc.setFileFilter(filter);
-
-		//Builds a temp frame so we can display the file chooser
-		JFrame tempFrame = new JFrame();
-		tempFrame.setSize(10, 10);
-		tempFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		tempFrame.setVisible(true);
-		int returnVal = fc.showOpenDialog(tempFrame);
-		tempFrame.dispose();
 		
-		if (returnVal == JFileChooser.APPROVE_OPTION) {
-//			new FileEditor(new File("str320_data.csv.txt"));
-			new FileEditor(new File(fc.getSelectedFile().getAbsolutePath()));
-		}
+		 JFileChooser fc = new JFileChooser();
+		 FileNameExtensionFilter filter = new FileNameExtensionFilter("TXT andCSV files", "csv", "txt");
+		 fc.setFileFilter(filter);
+		
+		 // Builds a temp frame so we can display the file chooser
+		 JFrame tempFrame = new JFrame();
+		 tempFrame.setSize(10, 10);
+		 tempFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		 int returnVal = fc.showOpenDialog(tempFrame);
+		 tempFrame.dispose();
+		
+		 if (returnVal == JFileChooser.APPROVE_OPTION) {
+		 new FileEditor(new File(fc.getSelectedFile().getAbsolutePath()));
+		 }
+		
+		
+		
+//		JFrame filePickFrame = new JFrame();
+//		filePickFrame.setTitle("IUP EDITOR PICKER");
+//		filePickFrame.setSize(300, 200);
+//		filePickFrame.setLocationRelativeTo(null);
+//		
+//		JButton screen112aData;
+//		JButton screen320Data;
+//		JButton screen331Data;
+//		
+//		filePickFrame.setVisible(true);
+//		filePickFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+//		new FileEditor(new File("str320_data.csv"));
+		
 
 	}
 
 	// CORRECT FORMAT FOR 2 LINES IN CSV
-	// COSC 110-003,Problem Solving & Structured Programming,09:30AM - 10:45AM,R
-	// COSC 310-001,Data Structures and Algorithms,10:10AM - 11:00AM,MW
+	// COSC 300-002,Assembly Language Programming,8:00 AM,9:15 AM,T
+	// COSC 220-001,Applied Computer Programming,8:00 AM,9:15 AM,R
 	File inputFile;
 	ArrayList<Class> classList;
 
@@ -90,8 +107,12 @@ public class FileEditor extends JFrame {
 	JLabel rightClassNameLebel;
 	JTextField rightClassNameTextField;
 	JLabel rightClassDaysLabel;
-	JLabel rightClassInfoLebel;
-	JTextField rightClassInfoTextField;
+	JLabel rightClassInfoDeptLabel;
+	JLabel rightClassInfoClassNumLabel;
+	JLabel rightClassInfoSecNumLabel;
+	JTextField rightClassInfoDeptTextField;
+	JTextField rightClassInfoClassNumTextField;
+	JTextField rightClassInfoSecNumTextField;
 	JCheckBox rightMondayCB = new JCheckBox("Monday");
 	JCheckBox rightTuesdayCB = new JCheckBox("Tuesday");
 	JCheckBox rightWednesdayCB = new JCheckBox("Wednesday");
@@ -142,6 +163,7 @@ public class FileEditor extends JFrame {
 
 		JScrollPane scrollPane = new JScrollPane(leftScrollPanel);
 		scrollPane.setPreferredSize(new Dimension(width / 2, height - 40));
+		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		leftPanel.add(scrollPane);
 		for (int i = 0; i < classList.size(); i++) {
 			GridBagLayout gridBag = new GridBagLayout();
@@ -174,7 +196,7 @@ public class FileEditor extends JFrame {
 			card.add(className);
 
 			c.weightx = 1.0;
-			JLabel time = new JLabel(classList.get(i).time);
+			JLabel time = new JLabel(classList.get(i).timeStart + " - " + classList.get(i).timeEnd);
 			gridBag.setConstraints(time, c);
 			card.add(time);
 
@@ -227,10 +249,18 @@ public class FileEditor extends JFrame {
 		JPanel rightClassInfoPanel = new JPanel();
 		rightClassInfoPanel.setBackground(backgroundColor);
 		rightClassInfoPanel.setOpaque(true);
-		rightClassInfoLebel = new JLabel("DEPT CLASS#-SECT#: ");
-		rightClassInfoTextField = new JTextField(20);
-		rightClassInfoPanel.add(rightClassInfoLebel);
-		rightClassInfoPanel.add(rightClassInfoTextField);
+		rightClassInfoDeptLabel = new JLabel("DEPT: ");
+		rightClassInfoClassNumLabel = new JLabel("CLASS#: ");
+		rightClassInfoSecNumLabel = new JLabel("SECT#: ");
+		rightClassInfoDeptTextField = new JTextField(4);
+		rightClassInfoClassNumTextField = new JTextField(3);
+		rightClassInfoSecNumTextField = new JTextField(3);
+		rightClassInfoPanel.add(rightClassInfoDeptLabel);
+		rightClassInfoPanel.add(rightClassInfoDeptTextField);
+		rightClassInfoPanel.add(rightClassInfoClassNumLabel);
+		rightClassInfoPanel.add(rightClassInfoClassNumTextField);
+		rightClassInfoPanel.add(rightClassInfoSecNumLabel);
+		rightClassInfoPanel.add(rightClassInfoSecNumTextField);
 		rightPanel.add(rightClassInfoPanel);
 
 		JPanel rightClassNamePanel = new JPanel();
@@ -278,6 +308,13 @@ public class FileEditor extends JFrame {
 		rightSubmitButton.addActionListener(submitAction);
 		rightPanel.add(rightSubmitButton);
 
+		// ADD TEXTFIELD LISTENERS
+		rightStartTime.addKeyListener(new TextFieldActionListener(rightStartTime));
+		rightEndTime.addKeyListener(new TextFieldActionListener(rightEndTime));
+		rightClassInfoDeptTextField.addKeyListener(new TextFieldActionListener(rightClassInfoDeptTextField));
+		rightClassInfoClassNumTextField.addKeyListener(new TextFieldActionListener(rightClassInfoClassNumTextField));
+		rightClassInfoSecNumTextField.addKeyListener(new TextFieldActionListener(rightClassInfoSecNumTextField));
+
 		add(rightPanel);
 	}
 
@@ -290,7 +327,7 @@ public class FileEditor extends JFrame {
 
 			while (in.hasNextLine()) {
 				String[] line = in.nextLine().split(",");
-				Class c = new Class(line[0], line[1], line[2], line[3]);
+				Class c = new Class(line[0], line[1], line[2], line[3], line[4]);
 				// System.out.println(c);
 				classList.add(c);
 			}
@@ -314,10 +351,22 @@ public class FileEditor extends JFrame {
 
 		private String buildStringToWrite() {
 			StringBuilder sb = new StringBuilder();
-			String dcncn = rightClassInfoTextField.getText();
+			String dcncn = rightClassInfoDeptTextField.getText() + " " + rightClassInfoClassNumTextField.getText() + "-"
+					+ rightClassInfoSecNumTextField.getText();
 			String className = rightClassNameTextField.getText();
-			String time = rightStartTime.getText() + ampm[rightStartAMPM.getSelectedIndex()] + " - "
-					+ rightEndTime.getText() + ampm[rightEndAMPM.getSelectedIndex()];
+			// TESTS FOR 2 numbers then adds a :
+			String[] temp = rightStartTime.getText().split(":");
+			// ADDs a 0 before the start hours
+			// if (temp[0].length() == 1) {
+			// rightStartTime.setText("0" + rightStartTime.getText());
+			// }
+			temp = rightEndTime.getText().split(":");
+			// ADDs a 0 before the end hours
+			// if (temp[0].length() == 1) {
+			// rightEndTime.setText("0" + rightEndTime.getText());
+			// }
+			String startTime = rightStartTime.getText() + " " + ampm[rightStartAMPM.getSelectedIndex()];
+			String endTime = rightEndTime.getText() + " " + ampm[rightEndAMPM.getSelectedIndex()];
 
 			StringBuilder daysStringBuilder = new StringBuilder();
 			if (rightMondayCB.isSelected()) {
@@ -340,11 +389,22 @@ public class FileEditor extends JFrame {
 			}
 			String days = daysStringBuilder.toString();
 
-			sb.append(dcncn + "," + className + "," + time + "," + days);
+			classList.add(new Class(dcncn, className, startTime, endTime, days));
+			Collections.sort(classList);
+
 			// Rebuilds what was already there.
+			boolean firstLineCreated = false;
 			for (int i = 0; i < classList.size(); i++) {
-				sb.append("\n" + classList.get(i).dcncn + "," + classList.get(i).className + "," + classList.get(i).time
-						+ "," + classList.get(i).days);
+				if (firstLineCreated) {
+					sb.append("\n" + classList.get(i).dcncn + "," + classList.get(i).className + ","
+							+ classList.get(i).timeStart + "," + classList.get(i).timeEnd + ","
+							+ classList.get(i).days);
+				} else {
+					sb.append(
+							classList.get(i).dcncn + "," + classList.get(i).className + "," + classList.get(i).timeStart
+									+ "," + classList.get(i).timeEnd + "," + classList.get(i).days);
+					firstLineCreated = true;
+				}
 			}
 			return sb.toString();
 		}
@@ -371,8 +431,14 @@ public class FileEditor extends JFrame {
 			} else if (rightEndTime.getText().equals("")) {
 				System.out.println("Failed: No End Time!");
 				return false;
-			} else if (rightClassInfoTextField.getText().equals("")) {
-				System.out.println("Failed: No Class Info!");
+			} else if (rightClassInfoDeptTextField.getText().equals("")) {
+				System.out.println("Failed: No Department Info!");
+				return false;
+			} else if (rightClassInfoClassNumTextField.getText().equals("")) {
+				System.out.println("Failed: No Class Number Info!");
+				return false;
+			} else if (rightClassInfoSecNumTextField.getText().equals("")) {
+				System.out.println("Failed: No Section Number Info!");
 				return false;
 			} else if (rightClassNameTextField.getText().equals("")) {
 				System.out.println("Failed: No Class Name!");
@@ -393,7 +459,9 @@ public class FileEditor extends JFrame {
 			rightStartAMPM.setSelectedIndex(0);
 			rightEndTime.setText("");
 			rightEndAMPM.setSelectedIndex(0);
-			rightClassInfoTextField.setText("");
+			rightClassInfoDeptTextField.setText("");
+			rightClassInfoClassNumTextField.setText("");
+			rightClassInfoSecNumTextField.setText("");
 			rightClassNameTextField.setText("");
 			rightMondayCB.setSelected(false);
 			rightTuesdayCB.setSelected(false);
@@ -435,10 +503,12 @@ public class FileEditor extends JFrame {
 				if (indexNumberOfLineToDelete != i) {
 					if (firstLineCreated) {
 						sb.append("\n" + classList.get(i).dcncn + "," + classList.get(i).className + ","
-								+ classList.get(i).time + "," + classList.get(i).days);
+								+ classList.get(i).timeStart + "," + classList.get(i).timeEnd + ","
+								+ classList.get(i).days);
 					} else {
 						sb.append(classList.get(i).dcncn + "," + classList.get(i).className + ","
-								+ classList.get(i).time + "," + classList.get(i).days);
+								+ classList.get(i).timeStart + "," + classList.get(i).timeEnd + ","
+								+ classList.get(i).days);
 						firstLineCreated = true;
 					}
 				}
@@ -459,21 +529,115 @@ public class FileEditor extends JFrame {
 
 	}
 
+	class TextFieldActionListener implements KeyListener {
+
+		JTextField textFieldObject = null;
+
+		TextFieldActionListener(JTextField textFieldObject) {
+			this.textFieldObject = textFieldObject;
+		}
+
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void keyReleased(KeyEvent arg0) {
+			if (textFieldObject == rightStartTime || textFieldObject == rightEndTime) {
+				numberAndColonCheck();
+			}
+			if (textFieldObject == rightClassInfoClassNumTextField
+					|| textFieldObject == rightClassInfoSecNumTextField) {
+				numberCheck();
+			}
+		}
+
+		@Override
+		public void keyTyped(KeyEvent arg0) {
+
+			if (textFieldObject == rightStartTime || textFieldObject == rightEndTime) {
+				if (textFieldObject.getText().length() > 4) {
+					textFieldObject.setText(textFieldObject.getText().substring(0, 4));
+				}
+				numberAndColonCheck();
+
+			} else if (textFieldObject == rightClassInfoDeptTextField) {
+				if (textFieldObject.getText().length() > 3) {
+					textFieldObject.setText(textFieldObject.getText().substring(0, 3));
+				}
+			} else if (textFieldObject == rightClassInfoClassNumTextField) {
+				if (textFieldObject.getText().length() > 2) {
+					textFieldObject.setText(textFieldObject.getText().substring(0, 2));
+				}
+				numberCheck();
+			} else if (textFieldObject == rightClassInfoSecNumTextField) {
+				if (textFieldObject.getText().length() > 2) {
+					textFieldObject.setText(textFieldObject.getText().substring(0, 2));
+				}
+				numberCheck();
+			}
+
+		}
+
+		void numberAndColonCheck() {
+			try {
+				String lastChar = textFieldObject.getText().substring((textFieldObject.getText().length() - 1),
+						(textFieldObject.getText().length()));
+				if (lastChar.equals("0") || lastChar.equals("1") || lastChar.equals("2") || lastChar.equals("3")
+						|| lastChar.equals("4") || lastChar.equals("5") || lastChar.equals("6") || lastChar.equals("7")
+						|| lastChar.equals("8") || lastChar.equals("9") || lastChar.equals(":")) {
+				} else {
+					System.out.println("NOT 0123456789:");
+					if (textFieldObject.getText().length() > 0) {
+						textFieldObject.setText(
+								textFieldObject.getText().substring(0, textFieldObject.getText().length() - 1));
+					}
+				}
+			} catch (Exception e) {
+
+			}
+		}
+
+		void numberCheck() {
+			try {
+				String lastChar = textFieldObject.getText().substring((textFieldObject.getText().length() - 1),
+						(textFieldObject.getText().length()));
+				if (lastChar.equals("0") || lastChar.equals("1") || lastChar.equals("2") || lastChar.equals("3")
+						|| lastChar.equals("4") || lastChar.equals("5") || lastChar.equals("6") || lastChar.equals("7")
+						|| lastChar.equals("8") || lastChar.equals("9")) {
+				} else {
+					System.out.println("NOT 0123456789");
+					if (textFieldObject.getText().length() > 0) {
+						textFieldObject.setText(
+								textFieldObject.getText().substring(0, textFieldObject.getText().length() - 1));
+					}
+				}
+			} catch (Exception e) {
+
+			}
+		}
+
+	}
+
 	class Class<T> implements Comparable<T> {
 		String dcncn;
 		String className;
-		String time;
+		String timeStart;
+		String timeEnd;
 		String days;
 
-		Class(String dcncn, String className, String time, String days) {
+		Class(String dcncn, String className, String timeStart, String timeEnd, String days) {
 			this.dcncn = dcncn;
 			this.className = className;
-			this.time = time;
+			this.timeStart = timeStart;
+			this.timeEnd = timeEnd;
 			this.days = days;
 		}
 
 		public String toString() {
-			return dcncn + " " + className + " " + time + " " + days;
+			return dcncn + " " + className + " " + timeStart + " " + timeEnd + " " + days;
 		}
 
 		/**
@@ -487,28 +651,82 @@ public class FileEditor extends JFrame {
 			// Figures out the hour slot
 			int o1hours = 0;
 			int o2hours = 0;
+			String o1AMPM;
+			String o2AMPM;
 			try {
-				o1hours = Integer.parseInt(this.time.substring(0, 2));
-				o2hours = Integer.parseInt(o2class.time.substring(0, 2));
+				o1hours = Integer.parseInt(this.timeStart.substring(0, 2));
+				try {
+					o2hours = Integer.parseInt(o2class.timeStart.substring(0, 2));
+				} catch (Exception a) {
+					o2hours = Integer.parseInt(o2class.timeStart.substring(0, 1));
+				}
 			} catch (Exception e) {
-				System.out.println("Incorrect Time Format on atleast one of the CSV files.");
-				return 0;
+				try {
+					o1hours = Integer.parseInt(this.timeStart.substring(0, 1));
+					try {
+						o2hours = Integer.parseInt(o2class.timeStart.substring(0, 2));
+					} catch (Exception b) {
+						o2hours = Integer.parseInt(o2class.timeStart.substring(0, 1));
+					}
+				} catch (Exception a) {
+					System.out.println("Incorrect Time Format on atleast one of the CSV files.");
+					return 0;
+				}
 			}
-
 			// Figures out the minutes slot
 			int o1minutes = 0;
 			int o2minutes = 0;
 			try {
-				o1minutes = Integer.parseInt(this.time.substring(3, 5));
-				o2minutes = Integer.parseInt(o2class.time.substring(3, 5));
+				o1minutes = Integer.parseInt(this.timeStart.substring(3, 5));
+				try {
+					o2minutes = Integer.parseInt(o2class.timeStart.substring(3, 5));
+				} catch (Exception a) {
+					o2minutes = Integer.parseInt(o2class.timeStart.substring(2, 4));
+				}
 			} catch (Exception e) {
-				System.out.println("Incorrect Time Format on atleast one of the CSV files.");
-				return 0;
+				try {
+					o1minutes = Integer.parseInt(this.timeStart.substring(2, 4));
+					try {
+						o2minutes = Integer.parseInt(o2class.timeStart.substring(3, 5));
+					} catch (Exception b) {
+						o2minutes = Integer.parseInt(o2class.timeStart.substring(2, 4));
+					}
+
+				} catch (Exception a) {
+					System.out.println("Incorrect Time Format on atleast one of the CSV files.");
+					return 0;
+				}
 			}
 
 			// Figures out the AMPM slot
-			String o1AMPM = this.time.substring(5, 7);
-			String o2AMPM = o2class.time.substring(5, 7);
+			try {
+				o1AMPM = this.timeStart.substring(6, 8);
+				try {
+					o2AMPM = o2class.timeStart.substring(6, 8);
+				} catch (Exception a) {
+					o2AMPM = o2class.timeStart.substring(5, 7);
+				}
+			} catch (Exception e) {
+				o1AMPM = this.timeStart.substring(5, 7);
+				try {
+					o2AMPM = o2class.timeStart.substring(6, 8);
+				} catch (Exception b) {
+					o2AMPM = o2class.timeStart.substring(5, 7);
+				}
+			}
+
+			// if both hours are 12pm
+			if ((o1hours == 12 && o2hours == 12) && (o1AMPM.equalsIgnoreCase("PM") && o2AMPM.equalsIgnoreCase("PM"))) {
+				// TESTS MINUTES SLOT
+				if (o1minutes > o2minutes) {
+					return 1;
+				}
+				if (o1minutes < o2minutes) {
+					return -1;
+				} else {
+					return 0;
+				}
+			}
 
 			if (o1hours == 12 && o2AMPM.equalsIgnoreCase("PM")) {
 				return -1;
